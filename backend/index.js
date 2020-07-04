@@ -14,6 +14,7 @@ mongoose.connect(process.env.API_KEY,{
 })
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 /*
 const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.API_KEY 
