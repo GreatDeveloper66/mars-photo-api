@@ -1,20 +1,32 @@
+import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
-//mongo connection
-//mongoose.connect('')
-require('dotenv').config()
 const app = express()
 const PORT = 3000
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+dotenv.config()
+console.log(process.env)
+/*
 mongoose.Promise = global.Promise
-
 mongoose.connect(process.env.API_KEY,{
     useNewUrlParser: true,
     useUnifiedTopology: true
+}).
+then(() => {
+    console.log('Mongoose connected')
+}).
+catch((err) => {
+    console.log('Connection unsuccessful ${err}')
 })
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
+
+
+
+
+*/
+
 /*
 const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.API_KEY 
@@ -24,8 +36,8 @@ client.connect(err => {
   // perform actions on the collection object
   client.close();
 });
-*/
 
+*/
 
 
 app.get('/', (req,res) => {
