@@ -2,13 +2,17 @@ import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 //mongo connection
-mongoose.Promise = global.Promise
-mongoose.connect('')
+//mongoose.connect('')
 require('dotenv').config()
 const app = express()
 const PORT = 3000
+mongoose.Promise = global.Promise
 
-
+mongoose.connect(process.env.API_KEY,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+/*
 const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.API_KEY 
 const client = new MongoClient(uri, { useNewUrlParser: true });
@@ -17,6 +21,7 @@ client.connect(err => {
   // perform actions on the collection object
   client.close();
 });
+*/
 
 
 
