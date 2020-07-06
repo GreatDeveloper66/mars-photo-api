@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
+import 'isomorphic-fetch'
 const app = express()
 const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
