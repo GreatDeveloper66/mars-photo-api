@@ -7,8 +7,8 @@ const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 dotenv.config()
-console.log(process.env)
-/*
+
+
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.API_KEY,{
     useNewUrlParser: true,
@@ -21,11 +21,6 @@ catch((err) => {
     console.log('Connection unsuccessful ${err}')
 })
 
-
-
-
-
-*/
 
 /*
 const MongoClient = require('mongodb').MongoClient;
