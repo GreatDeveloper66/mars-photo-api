@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
-import 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch'
 const app = express()
 const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
@@ -16,12 +16,17 @@ mongoose.connect(process.env.API_KEY,{
     useUnifiedTopology: true
 }).
 then(() => {
-    console.log('Mongoose connected')
+    const { URL, sol, key, camera  } = { process.env.BASE_URL, 
+                                        1000,
+                                        process.env.MARS_API_KEY, 
+                                        process.env.ROVER_CAMERAS[0] 
+                                    }
+    //fetch()
+    
 }).
 catch((err) => {
     console.log('Connection unsuccessful ${err}')
 })
-
 
 /*
 const MongoClient = require('mongodb').MongoClient;
