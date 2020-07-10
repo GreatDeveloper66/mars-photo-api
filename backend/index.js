@@ -21,7 +21,7 @@ then(() => {
                                         process.env.MARS_API_KEY, 
                                         process.env.ROVER_CAMERAS[0] 
                                     }
-    //fetch()
+    //fetch() 
     
 }).
 catch((err) => {
