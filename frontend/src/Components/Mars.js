@@ -14,20 +14,20 @@ export default function Mars() {
     return(
         <Container fluid>
             <Row className="d-flex justify-content-center">
-              <Col xs={12} sm={4} lg={3} className="d-flex justify-content-center">
+              <Col xs={12} sm={4} lg={3} className="d-flex justify-content-center" style={{backgroundColor: 'lightblue'}}>
               <Form> 
-                <Form.Row> 
+                <Form.Row className="d-flex justify-content-center align-items-center"> 
                     <h1>MARS PHOTO API</h1>
                 </Form.Row> 
-                <Form.Row> 
+                <Form.Row className="d-flex justify-content-center align-items-center"> 
                     <h3>CURIOSITY</h3> 
                 </Form.Row> 
-                <Form.Row> 
-                    <label htmlFor="sol">Sol</label> 
+                <Form.Row className="d-flex justify-content-start align-items-center"> 
+                    <label htmlFor="sol"className="d-flex mr-5">Sol</label> 
                     <input type="number"></input> 
                 </Form.Row> 
                 <Form.Row> 
-                <label htmlFor="camera">Camera</label> 
+                <label htmlFor="camera" className="d-flex mr-3" >Camera</label> 
                 <select id="cameras" name="cameras" value={camera} onChange={handleChange}> 
                     <option value="FHAZ">FHAZ</option> 
                     <option value="RHAZ">RHAZ</option> 
@@ -40,7 +40,7 @@ export default function Mars() {
                     <option value="MINITES">MINITES</option> 
                 </select> 
             </Form.Row> 
-            <Form.Row> 
+            <Form.Row className="d-flex justify-content-center align-items-center"> 
                 <button type="submit" onSubmit={handleSubmit}>Find Photos</button> 
             </Form.Row> 
         </Form> 
