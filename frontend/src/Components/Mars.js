@@ -11,7 +11,6 @@ export default function Mars() {
     const handleIncDec = event => setSol(event.target.value)
 
         return(
-
             <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
                 <Grid item xs={3}>
                     <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
