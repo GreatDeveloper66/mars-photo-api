@@ -22,7 +22,7 @@ export default function Mars() {
                         <form>
                             <label htmlFor="camera">Camera</label>
                             <select id="cameras" name="cameras" value={camera} onChange={handleChange}>
-                                <option value="FHAZ" selected>FHAZ</option>
+                                <option value="FHAZ">FHAZ</option>
                                 <option value="RHAZ">RHAZ</option>
                                 <option value="MAST">MAST</option>
                                 <option value="CHEMCAM">CHEMCAM</option>
