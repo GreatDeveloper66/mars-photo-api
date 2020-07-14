@@ -26,12 +26,20 @@ export default function Mars() {
                 <Form.Row className="d-flex justify-content-center align-items-center"> 
                     <h3>CURIOSITY</h3> 
                 </Form.Row> 
-                <Form.Row className="d-flex justify-content-start align-items-center"> 
+                <Form.Row className="d-flex justify-content-start align-items-center">
+                    <Col xs={3}>
                     <label htmlFor="sol"className="d-flex mr-5">Sol</label> 
+                    </Col>
+                    <Col xs={9}>
                     <input type="number"></input> 
+                    </Col>
                 </Form.Row> 
                 <Form.Row> 
+                    
+                        <Col xs={3}>
                 <label htmlFor="camera" className="d-flex mr-3" >Camera</label> 
+                </Col>
+                <Col xs={9}>
                 <select id="cameras" name="cameras" value={camera} onChange={handleChange}> 
                     <option value="FHAZ">FHAZ</option> 
                     <option value="RHAZ">RHAZ</option> 
@@ -43,6 +51,8 @@ export default function Mars() {
                     <option value="PANCAM">PANCAM</option> 
                     <option value="MINITES">MINITES</option> 
                 </select> 
+                </Col>
+                
             </Form.Row> 
             <Form.Row className="d-flex justify-content-center align-items-center"> 
                 <Button type="submit" variant="primary">Find Photos</Button> 
