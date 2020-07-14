@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react'
-import Grid from '@material-ui/core/Grid'
+import { Row, Container, Col } from 'react-bootstrap'
 
 export default function Mars() {
     const [ camera, setCamera ] = useState('FHAZ')
@@ -12,36 +12,23 @@ export default function Mars() {
     }
 
         return(
-            <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
-                <Grid item xs={3}>
-                    <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
-                        <h1>MARS PHOTO API</h1>
-                    </Grid>
-                    <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
-                        <h3>CURIOSITY</h3>
-                    </Grid>
-                    <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
-                        <form>
-                            <label htmlFor="sol">Sol</label>
-                            <input type="number"></input>
-                            <label htmlFor="camera">Camera</label>
-                            <select id="cameras" name="cameras" value={camera} onChange={handleChange}>
-                                <option value="FHAZ">FHAZ</option>
-                                <option value="RHAZ">RHAZ</option>
-                                <option value="MAST">MAST</option>
-                                <option value="CHEMCAM">CHEMCAM</option>
-                                <option value="MAHLI">MAHLI</option>
-                                <option value="MARDI">MARDI</option>
-                                <option value="NAVCAM">NAVCAM</option>
-                                <option value="PANCAM">PANCAM</option>
-                                <option value="MINITES">MINITES</option>
-                            </select>
-                            <button type="submit" onSubmit={handleSubmit}>Find Photos</button>
-                        </form>
-                    </Grid>
-                </Grid>
-
-
-            </Grid>
+            
+            <Container>
+            <Row>
+              <Col>1 of 2</Col>
+              <Col>2 of 2</Col>
+            </Row>
+            <Row>
+              <Col>1 of 3</Col>
+              <Col>2 of 3</Col>
+              <Col>3 of 3</Col>
+            </Row>
+          </Container>
+                        
+                           
+                          
+                            
+                        
+                  
         )
 }
