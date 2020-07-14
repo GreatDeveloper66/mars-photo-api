@@ -20,7 +20,7 @@ export default function Mars() {
                     </Grid>
                     <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
                         <form>
-                            <label for="camera">Camera</label>
+                            <label htmlFor="camera">Camera</label>
                             <select id="cameras" name="cameras" value={camera} onChange={handleChange}>
                                 <option value="FHAZ" selected>FHAZ</option>
                                 <option value="RHAZ">RHAZ</option>
