@@ -6,16 +6,20 @@ export default function Mars() {
     const [ sol, setSol ] = useState(0)
     const handleChange = event => setCamera(event.target.value)
     const handleIncDec = event => setSol(event.target.value)
-    const handleSubmit = () => {
+    const handleSubmit = event => {
+        event.preventDefault()
         console.log('camera', camera)
         console.log('sol', sol)
     }
-
+    const colStyle={
+        backgroundColor: 'lightblue',
+        boxShadow: '3px 3px grey'
+    }
     return(
         <Container fluid>
             <Row className="d-flex justify-content-center">
-              <Col xs={12} sm={4} lg={3} className="d-flex justify-content-center" style={{backgroundColor: 'lightblue'}}>
-              <Form> 
+              <Col xs={12} sm={4} className="d-flex justify-content-center" style={colStyle}>
+              <Form onSubmit={handleSubmit}> 
                 <Form.Row className="d-flex justify-content-center align-items-center"> 
                     <h1>MARS PHOTO API</h1>
                 </Form.Row> 
@@ -41,7 +45,7 @@ export default function Mars() {
                 </select> 
             </Form.Row> 
             <Form.Row className="d-flex justify-content-center align-items-center"> 
-                <button type="submit" onSubmit={handleSubmit}>Find Photos</button> 
+                <button type="submit">Find Photos</button> 
             </Form.Row> 
         </Form> 
     </Col>
