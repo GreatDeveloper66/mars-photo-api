@@ -32,6 +32,18 @@ export default function Mars() {
                                 <option value="PANCAM">PANCAM</option>
                                 <option value="MINITES">MINITES</option>
                             </select>
+                            <label htmlFor="camera">Camera</label>
+                            <select id="cameras" name="cameras" value={camera} onChange={handleChange}>
+                                <option value="FHAZ">FHAZ</option>
+                                <option value="RHAZ">RHAZ</option>
+                                <option value="MAST">MAST</option>
+                                <option value="CHEMCAM">CHEMCAM</option>
+                                <option value="MAHLI">MAHLI</option>
+                                <option value="MARDI">MARDI</option>
+                                <option value="NAVCAM">NAVCAM</option>
+                                <option value="PANCAM">PANCAM</option>
+                                <option value="MINITES">MINITES</option>
+                            </select>
                             
                         </form>
                     </Grid>
