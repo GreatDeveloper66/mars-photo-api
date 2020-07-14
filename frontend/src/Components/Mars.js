@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react'
-import { Row, Container, Col, Form } from 'react-bootstrap'
+import { Row, Container, Col, Form, Button } from 'react-bootstrap'
 
 export default function Mars() {
     const [ camera, setCamera ] = useState('FHAZ')
@@ -45,7 +45,7 @@ export default function Mars() {
                 </select> 
             </Form.Row> 
             <Form.Row className="d-flex justify-content-center align-items-center"> 
-                <button type="submit">Find Photos</button> 
+                <Button type="submit" variant="primary">Find Photos</Button> 
             </Form.Row> 
         </Form> 
     </Col>
