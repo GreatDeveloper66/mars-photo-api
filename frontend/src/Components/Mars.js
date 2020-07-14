@@ -6,7 +6,9 @@ import Grid from '@material-ui/core/Grid'
 
 export default function Mars() {
     const [ camera, setCamera ] = useState('FHAZ')
+    const [ sol, setSol ] = useState(0)
     const handleChange = event => setCamera(event.target.value)
+    const handleIncDec = event => setSol(event.target.value)
 
         return(
 
@@ -34,7 +36,7 @@ export default function Mars() {
                                 <option value="PANCAM">PANCAM</option>
                                 <option value="MINITES">MINITES</option>
                             </select>
-                            
+                            <button type="submit">Find Photos</button>
                         </form>
                     </Grid>
                 </Grid>
