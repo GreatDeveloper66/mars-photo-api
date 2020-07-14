@@ -5,8 +5,8 @@ import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select'
 
 export default function Mars() {
-    const [ camera, setCamera ] = useState()
-
+    const [ camera, setCamera ] = useState('Any')
+    const handleChange = camera => setCamera(camera)
         return(
 
             <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
@@ -20,8 +20,8 @@ export default function Mars() {
                     <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
                         <form>
                             <FormControl>
-                            <InputLabel htmlFor="age-native-simple">Age</InputLabel>
-                            <Select native value={this.state.age} onChange={this.handleChange}
+                            <InputLabel htmlFor="age-native-simple">Camera</InputLabel>
+                            <Select native value={camera} onChange={}
                                 inputProps={{
                                     name: 'age',
                                     id: 'age-native-simple',
