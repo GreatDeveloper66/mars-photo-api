@@ -1,23 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select'
 
-class Mars extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
+export default function Mars() {
+    const [ camera, setCamera ] = useState()
 
-        }
-    }
-
-    handleChange = () => {
-
-    }
-    render(){
         return(
-            
+
             <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
                 <Grid item xs={3} justify="center" alignItems="center">
                     <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
@@ -45,11 +36,8 @@ class Mars extends Component {
                         </form>
                     </Grid>
                 </Grid>
-                
+
 
             </Grid>
         )
-    }
 }
-
-export default Mars
