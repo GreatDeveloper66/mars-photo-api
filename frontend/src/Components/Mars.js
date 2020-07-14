@@ -19,20 +19,19 @@ export default function Mars() {
                     </Grid>
                     <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
                         <form>
-                            <FormControl>
-                            <InputLabel htmlFor="age-native-simple">Camera</InputLabel>
-                            <Select native value={camera} onChange={}
-                                inputProps={{
-                                    name: 'age',
-                                    id: 'age-native-simple',
-                                }}
-                            >
-                            <option aria-label="None" value="" />
-                            <option value={10}>Ten</option>
-                            <option value={20}>Twenty</option>
-                            <option value={30}>Thirty</option>
-                            </Select>
-                            </FormControl>
+                            <label for="camera">Camera</label>
+                            <select id="cameras" name="cameras">
+                                <option value="FHAZ">FHAZ</option>
+                                <option value="RHAZ">RHAZ</option>
+                                <option value="MAST">MAST</option>
+                                <option value="CHEMCAM">CHEMCAM</option>
+                                <option value="MAHLI">MAHLI</option>
+                                <option value="MARDI">MARDI</option>
+                                <option value="NAVCAM">NAVCAM</option>
+                                <option value="PANCAM">PANCAM</option>
+                                <option value="MINITES">MINITES</option>
+                            </select>
+                            
                         </form>
                     </Grid>
                 </Grid>
