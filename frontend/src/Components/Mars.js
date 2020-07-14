@@ -6,6 +6,10 @@ export default function Mars() {
     const [ sol, setSol ] = useState(0)
     const handleChange = event => setCamera(event.target.value)
     const handleIncDec = event => setSol(event.target.value)
+    const handleSubmit = () => {
+        console.log('camera', camera)
+        console.log('sol', sol)
+    }
 
         return(
             <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
@@ -32,7 +36,7 @@ export default function Mars() {
                                 <option value="PANCAM">PANCAM</option>
                                 <option value="MINITES">MINITES</option>
                             </select>
-                            <button type="submit">Find Photos</button>
+                            <button type="submit" onSubmit={handleSubmit}>Find Photos</button>
                         </form>
                     </Grid>
                 </Grid>
