@@ -11,16 +11,15 @@ dotenv.config()
 
 
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.API_KEY,{
+mongoose.connect(process.env.API_KEY, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).
 then(() => {
-    const { URL, sol, key, camera  } = { process.env.BASE_URL, 
-                                        1000,
-                                        process.env.MARS_API_KEY, 
-                                        process.env.ROVER_CAMERAS[0] 
-                                    }
+    const URL = process.env.BASE_URL
+    const sol = 1000
+    const key = process.env.MARS_API_KEY
+    const camera = process.env.ROVER_CAMERAS
     //fetch() 
     
 }).
@@ -43,6 +42,18 @@ client.connect(err => {
 
 app.get('/', (req,res) => {
     res.send(`Our mars application is running on ${PORT}`)
+    const URL = process.env.BASE_URL
+    const sol = 1000
+    const key = process.env.MARS_API_KEY
+    const camera = process.env.ROVER_CAMERAS
+    const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+    fetch(fetchURL)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log('img',data.photos[0].img_src)
+            console.log('earth_date', data.photos[0].earth_date)
+        })
+        .catch(error => console.log(error))
 })
 
 app.listen(PORT, () => {
