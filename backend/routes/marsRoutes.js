@@ -5,3 +5,5 @@ const routes = app => {
     //POST endpoint
         .post(addNewImage)
 }
+
+export default routes
