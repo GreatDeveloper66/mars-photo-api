@@ -3,12 +3,14 @@ import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import fetch from 'isomorphic-fetch'
+import routes from './routes/marsRoutes'
 const app = express()
 const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 dotenv.config()
 
+routes(app)
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.API_KEY, {
