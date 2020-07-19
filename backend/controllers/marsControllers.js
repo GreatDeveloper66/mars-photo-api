@@ -1,8 +1,7 @@
-import mogoose from 'mongoose'
-import { marsSchema } from '../models/marsModel'
-
-const mars = mongoose.model('Mars', marsSchema)
+import mongoose from 'mongoose'
+import { marsSchema } from '../models/marsModels'
+const marsPics = mongoose.model('Mars', marsSchema)
 
 export const addNewImage = (req, res) => {
-    
+
 }
