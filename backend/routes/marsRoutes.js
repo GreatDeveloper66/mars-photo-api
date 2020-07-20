@@ -1,9 +1,10 @@
-import { addNewImage } from '../controllers/marsControllers'
+import { addNewImage,getImages } from '../controllers/marsControllers'
 
-const routes = app => {
+const marsRoutes = app => {
     app.route('/images')
+        .get(getImages)
     //POST endpoint
         .post(addNewImage)
 }
 
-export default routes
+export default marsRoutes
