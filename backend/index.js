@@ -3,15 +3,18 @@ import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import fetch from 'isomorphic-fetch'
-import routes from './routes/marsRoutes'
+/*
+import marsRoutes from 'routes/marsRoutes'
+*/
 const app = express()
 const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 dotenv.config()
-
-routes(app)
-
+/*
+marsRoutes(app)
+*/
+/*
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.API_KEY, {
     useNewUrlParser: true,
@@ -29,7 +32,7 @@ catch((err) => {
     console.log('Connection unsuccessful ${err}')
 })
 
-/*
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.API_KEY 
 const client = new MongoClient(uri, { useNewUrlParser: true });
