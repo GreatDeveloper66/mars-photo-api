@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react'
 import { Row, Container, Col, Form, Button } from 'react-bootstrap'
 import { URL } from './EnvVars'
+import fetch from 'isomorphic-fetch'
 
 export default function Mars() {
     const [ camera, setCamera ] = useState('FHAZ')
@@ -9,6 +10,10 @@ export default function Mars() {
     const handleIncDec = event => setSol(event.target.value)
     const handleSubmit = event => {
         event.preventDefault()
+        fetch(URL).
+            then(resp => resp.json()).
+            then(data => console.log(data))
+            
         console.log('camera', camera)
         console.log('sol', sol)
     }
