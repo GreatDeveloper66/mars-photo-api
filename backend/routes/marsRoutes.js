@@ -4,7 +4,7 @@ const marsRoutes = app => {
     app.route('/images')
         .get(getImages)
     //POST endpoint
-        .post(addNewImage)
+        //.post(addNewImage)
 }
 
 export default marsRoutes
