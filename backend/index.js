@@ -19,6 +19,7 @@ let corsOptions = {
 app.listen(PORT, () => {
     console.log(`Your app is listening on ${PORT}`)
 })
+
 app.get('/', cors(corsOptions), (req,res) => {
     const URL = process.env.BASE_URL
     const sol = 1000
@@ -29,6 +30,10 @@ app.get('/', cors(corsOptions), (req,res) => {
         .then(resp => resp.json())
         .then(data => res.send(data))
         .catch(error => res.send(error))
+})
+
+app.get('/about', (req,res) => {
+    res.send('hello')
 })
 /*
 dotenv.config()
