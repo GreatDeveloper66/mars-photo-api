@@ -32,8 +32,9 @@ app.get('/', cors(corsOptions), (req,res) => {
         .catch(error => res.send(error))
 })
 
-app.get('/about', (req,res) => {
+app.get('/sol/:sol/camera/:camera', (req,res) => {
     res.send('hello')
+    console.log(req.params)
 })
 /*
 dotenv.config()
