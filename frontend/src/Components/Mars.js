@@ -13,11 +13,11 @@ export default function Mars() {
     const handleSubmit = event => {
         event.preventDefault()
         fetch(`${URL}`)
-            .then(resp => console.log('hello'))
-
-        
+            .then(resp => resp.json())
+            .then(data => console.log(data))
     }
-    const colStyle={
+
+    const colStyle= {
         backgroundColor: 'lightblue',
         boxShadow: '3px 3px grey'
     }
