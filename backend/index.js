@@ -38,7 +38,7 @@ app.get('/sol/:sol/camera/:camera', (req,res) => {
     const { sol, camera } = req.params
     const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
     fetch(fetchURL)
-        .then(resp => console.log(resp.json())
+        .then(resp => console.log(resp.json()))
     
 })
 /*
