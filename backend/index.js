@@ -9,11 +9,14 @@ const app = express()
 const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+const [ URL, key ] = [ process.env.BASE_URL, process.env.MARS_API_KEY ]
+/*
 const URL = process.env.BASE_URL
     const sol = 1000
     const key = process.env.MARS_API_KEY
     const camera = process.env.ROVER_CAMERAS
     const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+    */
 let corsOptions = {
     origin: process.env.FRONT_URL,
     optionsSuccessStatus: 200
@@ -32,7 +35,11 @@ app.get('/', cors(corsOptions), (req,res) => {
 
 app.get('/sol/:sol/camera/:camera', (req,res) => {
     res.send('hello')
-    console.log(req.params)
+    const { sol, camera } = req.params
+    const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+    fetch(fetchURL)
+        .then(resp => console.log(resp.json())
+    
 })
 /*
 dotenv.config()
