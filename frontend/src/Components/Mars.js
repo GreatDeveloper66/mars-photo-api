@@ -2,10 +2,8 @@ import React, { Component, useState } from 'react'
 import { Row, Container, Col, Form, Button } from 'react-bootstrap'
 //import { URL } from './EnvVars'
 import fetch from 'isomorphic-fetch'
-import dotenv from 'dotenv'
-dotenv.config({path: './' })
 
-const URL = process.env.APIURL
+const URL = process.env.REACT_APP_APIURL
 console.log(URL)
 
 export default function Mars() {
