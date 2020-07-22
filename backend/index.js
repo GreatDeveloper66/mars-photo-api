@@ -1,16 +1,39 @@
 import dotenv from 'dotenv'
 import express from 'express'
-import mongoose from 'mongoose'
+//import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import fetch from 'isomorphic-fetch'
+import cors from 'cors'
 /*
 import marsRoutes from 'routes/marsRoutes'
 */
+dotenv.config()
 const app = express()
 const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+let corsOptions = {
+    origin: process.env.FRONT_URL,
+    optionsSuccessStatus: 200
+}
+app.listen(PORT, () => {
+    console.log(`Your app is listening on ${PORT}`)
+})
+app.get('/', cors(corsOptions), (req,res) => {
+    const URL = process.env.BASE_URL
+    const sol = 1000
+    const key = process.env.MARS_API_KEY
+    const camera = process.env.ROVER_CAMERAS
+    const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+    fetch(fetchURL)
+        .then(resp => resp.json())
+        .then(data => res.send(data))
+        .catch(error => res.send(error))
+})
+/*
 dotenv.config()
+
+
 /*
 marsRoutes(app)
 */
@@ -43,21 +66,26 @@ client.connect(err => {
 });
 
 */
+/*
 const URL = process.env.BASE_URL
 const sol = 1000
 const key = process.env.MARS_API_KEY
 const camera = process.env.ROVER_CAMERAS
 const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+
+
+app.listen(PORT, () => {
+    console.log(`Your app is listening on ${PORT}`)
+})
+/*
 fetch(fetchURL)
     .then(resp => resp.json())
     .then(data => {
-        app.get('/', (req,res) => {
+        app.get('/', cors(corsOptions), (req,res) => {
           res.send(`${data.photos[0].img_src}, ${data.photos[0].earth_date}`)
         })
 
     })
     .catch(error => console.log(error))
 
-app.listen(PORT, () => {
-    console.log(`Your app is listening on ${PORT}`)
-})
+    */
