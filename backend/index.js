@@ -25,22 +25,23 @@ app.listen(PORT, () => {
     console.log(`Your app is listening on ${PORT}`)
 })
 
-app.get('/', cors(corsOptions), (req,res) => {
-    
+app.get('/sol/:sol/camera/:camera', (req,res) => {
+    const { sol, camera } = req.params
+    const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+    console.log(fetchURL)
     fetch(fetchURL)
         .then(resp => resp.json())
         .then(data => res.send(data))
-        .catch(error => res.send(error))
-})
-
-app.get('/sol/:sol/camera/:camera', (req,res) => {
-    res.send('hello')
-    const { sol, camera } = req.params
-    const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
-    fetch(fetchURL)
-        .then(resp => console.log(resp.json()))
+        .catch(error => console.log(error))
     
 })
+
+app.get('/', cors(corsOptions), (req,res) => {
+    res.send('hello')
+})
+
+
+
 /*
 dotenv.config()
 
