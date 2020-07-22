@@ -2,7 +2,7 @@
 import express from 'express'
 //import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
-//import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch'
 import cors from 'cors'
 /*
 import marsRoutes from 'routes/marsRoutes'
@@ -17,9 +17,19 @@ let corsOptions = {
 }
 app.listen(PORT, () => {
     console.log(`Your app is listening on ${PORT}`)
+    console.log(process.env.FRONT_URL)
 })
 app.get('/', cors(corsOptions), (req,res) => {
-    res.send('hello on route /')
+    const URL = process.env.BASE_URL
+    const sol = 1000
+    const key = process.env.MARS_API_KEY
+    const camera = process.env.ROVER_CAMERAS
+    const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+    console.log(fetchURL)
+    fetch(fetchURL)
+        .then(resp => resp.json())
+        .then(data => res.send(data))
+        .catch(error => res.send(error))
 })
 /*
 dotenv.config()
