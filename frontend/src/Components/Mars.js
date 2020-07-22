@@ -4,7 +4,6 @@ import { Row, Container, Col, Form, Button } from 'react-bootstrap'
 import fetch from 'isomorphic-fetch'
 
 const URL = process.env.REACT_APP_APIURL
-console.log(URL)
 
 export default function Mars() {
     const [ camera, setCamera ] = useState('FHAZ')
@@ -12,14 +11,11 @@ export default function Mars() {
     const handleChange = event => setCamera(event.target.value)
     const handleIncDec = event => setSol(event.target.value)
     const handleSubmit = event => {
-        console.log(URL)
         event.preventDefault()
         fetch(`${URL}`)
-            .then(resp => resp.json())
-            .then(data => console.log(data))
+            .then(resp => console.log('hello'))
 
-        console.log('camera', camera)
-        console.log('sol', sol)
+        
     }
     const colStyle={
         backgroundColor: 'lightblue',
