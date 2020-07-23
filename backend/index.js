@@ -4,14 +4,19 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import fetch from 'isomorphic-fetch'
 import cors from 'cors'
-/*
-import marsRoutes from 'routes/marsRoutes'
-*/
 dotenv.config()
 const app = express()
 const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+const [ URL, key ] = [ process.env.BASE_URL, process.env.MARS_API_KEY ]
+/*
+const URL = process.env.BASE_URL
+    const sol = 1000
+    const key = process.env.MARS_API_KEY
+    const camera = process.env.ROVER_CAMERAS
+    const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+    */
 let corsOptions = {
     origin: process.env.FRONT_URL,
     optionsSuccessStatus: 200
@@ -19,17 +24,24 @@ let corsOptions = {
 app.listen(PORT, () => {
     console.log(`Your app is listening on ${PORT}`)
 })
-app.get('/', cors(corsOptions), (req,res) => {
-    const URL = process.env.BASE_URL
-    const sol = 1000
-    const key = process.env.MARS_API_KEY
-    const camera = process.env.ROVER_CAMERAS
+
+app.get('/sol/:sol/camera/:camera', cors(corsOptions), (req,res) => {
+    const { sol, camera } = req.params
     const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
+    console.log(fetchURL)
     fetch(fetchURL)
         .then(resp => resp.json())
         .then(data => res.send(data))
-        .catch(error => res.send(error))
+        .catch(error => console.log(error))
+    
 })
+
+app.get('/', cors(corsOptions), (req,res) => {
+    res.send('hello')
+})
+
+
+
 /*
 dotenv.config()
 
