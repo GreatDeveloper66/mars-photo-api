@@ -10,9 +10,10 @@ export default function Mars() {
     const [ sol, setSol ] = useState(0)
     const handleChange = event => setCamera(event.target.value)
     const handleIncDec = event => setSol(event.target.value)
+    const fetchURL = `${URL}/sol/${sol}/camera/${camera}`
     const handleSubmit = event => {
         event.preventDefault()
-        fetch(`${URL}`)
+        fetch(`${fetchURL}`)
             .then(resp => resp.json())
             .then(data => console.log(data))
     }
