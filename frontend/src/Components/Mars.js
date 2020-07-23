@@ -67,6 +67,10 @@ export default function Mars() {
         </Form> 
     </Col>
 </Row>
-</Container>   
+<Row className="d-flex justify-content-center">
+    Hello
+</Row>
+</Container>
+   
 )
 }
