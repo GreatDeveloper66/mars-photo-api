@@ -25,7 +25,7 @@ app.listen(PORT, () => {
     console.log(`Your app is listening on ${PORT}`)
 })
 
-app.get('/sol/:sol/camera/:camera', (req,res) => {
+app.get('/sol/:sol/camera/:camera', cors(corsOptions), (req,res) => {
     const { sol, camera } = req.params
     const fetchURL = `${URL}sol=${sol}&camera=${camera}&api_key=${key}`
     console.log(fetchURL)
