@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react'
-import { Row, Container, Col, Form, Button } from 'react-bootstrap'
+import { Row, Container, Col, Form, Button, Image } from 'react-bootstrap'
 //import { URL } from './EnvVars'
 import fetch from 'isomorphic-fetch'
 
@@ -8,14 +8,25 @@ const URL = process.env.REACT_APP_APIURL
 export default function Mars() {
     const [ camera, setCamera ] = useState('FHAZ')
     const [ sol, setSol ] = useState(0)
+    const [ Images, setImages ] = useState([])
     const handleChange = event => setCamera(event.target.value)
     const handleIncDec = event => setSol(event.target.value)
     const fetchURL = `${URL}/sol/${sol}/camera/${camera}`
+    const renderImages = () => {
+        
+        return Images.map(img => <Col xs={12} sm={6} md={4} lg={3} className="d-flex justify-content-center">
+            <Image src={img} thumbnail />
+        </Col>)
+        
+        
+    }
     const handleSubmit = event => {
         event.preventDefault()
         fetch(`${fetchURL}`)
             .then(resp => resp.json())
-            .then(data => console.log(data))
+            .then(data => {
+
+            })
     }
 
     const colStyle= {
@@ -68,7 +79,8 @@ export default function Mars() {
     </Col>
 </Row>
 <Row className="d-flex justify-content-center">
-    Hello
+   {renderImages()}
+
 </Row>
 </Container>
    
