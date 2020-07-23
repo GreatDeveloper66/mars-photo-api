@@ -38,7 +38,7 @@ export default function Mars() {
                     <label htmlFor="sol"className="d-flex mr-5">Sol</label> 
                     </Col>
                     <Col xs={9}>
-                    <input type="number"></input> 
+                    <input type="number" onChange={handleIncDec}></input> 
                     </Col>
                 </Form.Row> 
                 <Form.Row> 
