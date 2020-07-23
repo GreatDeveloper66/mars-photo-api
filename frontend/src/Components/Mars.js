@@ -25,7 +25,7 @@ export default function Mars() {
         fetch(`${fetchURL}`)
             .then(resp => resp.json())
             .then(data => {
-
+                setImages(data.photos.map(datum => datum.img_src))
             })
     }
 
