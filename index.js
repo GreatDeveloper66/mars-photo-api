@@ -10,6 +10,7 @@ const PORT = 5000
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 const [ URL, key ] = [ process.env.BASE_URL, process.env.MARS_API_KEY ]
+const path = require('path')
 /*
 const URL = process.env.BASE_URL
     const sol = 1000
